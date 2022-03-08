@@ -5,37 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu du serpent</title>
+    
+</head>
+<body>
+        
+    <table id="board"></table>
     <script type="text/javascript" defer>
         
         const board = document.querySelector('#board');
         let tblBody = document.createElement("tbody");
+        let cases = createNum();
 
-        for (var j = 0; j < 4 ; j++) {
+        function createNum(num) {
+
+        }
+
+        for (var j = 0; j < 5 ; j++) {
 
             var row = document.createElement("tr");
 
-        for (var i = 0; i < 50; i++) {
+            for (var i = 1; i <= 10; i++) {
+                
+                if(j%2 == 0) {
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(i+j*10);
+                }
+                else {
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(11-i+j*10);
+                }
 
-            var cell = document.createElement("td");
-            var cellText = document.createTextNode(i);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
 
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
-
-        board.appendChild(row);
-
+        tblBody.appendChild(row);
         board.appendChild(tblBody);
-        board.appendChild(tbl);
             }
 
         createBoard(5, 50);
 
     </script>
-</head>
-<body>
-        
-    <table id="board"></table>
-    
 </body>
 </html>
