@@ -1,27 +1,32 @@
-const board = document.querySelector("#board");
-        const boardValues = [
-            [1, 2, 3, 4, 5],
-            [6, 7, 8, 9, 10],
-            [11, 12, 13, 14, 15],
-            [16, 17, 18, 19, 20]
-        ];
+const board = document.querySelector('#board');
+        let tblBody = document.createElement("tbody");
+        let cases = createNum();
 
-        console.dir(board);
+        function createNum(num) {
 
-        function createBoard() {
-            var grid = "";
-
-            for (var i = 0; i < boardValues.length; i++) {
-                grid += "<tr>";
-
-                for (var j = 0; j < boardValues[i].length; j++) {
-                    grid += `<td>${boardValues[i]}</td>`;
-                }
-
-                grid += "</tr>";
-            };
-            console.log(grid)
-            board.innerHTML = grid;
         }
 
-        createBoard();
+        for (var j = 0; j < 5 ; j++) {
+
+            var row = document.createElement("tr");
+
+            for (var i = 1; i <= 10; i++) {
+                
+                if(j%2 == 0) {
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(i+j*10);
+                }
+                else {
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(11-i+j*10);
+                }
+
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        tblBody.appendChild(row);
+        board.appendChild(tblBody);
+            }
+
+        createBoard(5, 50);
