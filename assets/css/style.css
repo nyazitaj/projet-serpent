@@ -10,7 +10,6 @@ body{
 h1{
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 table{
@@ -25,3 +24,15 @@ td{
     width: 70px;
     background:rgb(12, 167, 102);
 }
+
+.snake-container{
+    text-align: center;
+    margin-top: 20px;
+}
+
+button{
+    width: 150px;
+    height: 40px;
+    background:rgb(12, 144, 167);
+}
+
