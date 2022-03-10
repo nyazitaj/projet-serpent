@@ -15,10 +15,12 @@ h1{
 table{
     margin: auto;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 td{
     border: 1px solid black;
+    font-weight: bolder;
     text-align: center;
     height: 70px; 
     width: 70px;
@@ -27,7 +29,6 @@ td{
 
 .snake-container{
     text-align: center;
-    margin-top: 20px;
 }
 
 button{
