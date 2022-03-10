@@ -11,26 +11,37 @@
 </head>
 
 <body>
-    <h1>SERPENT</h1>
-    <table id="board"></table>
+    <!-- <table id="board"></table>
 
     <br />
-    <br />
+    <br /> -->
 
     <div class="snake-container">
-        <div id="snake-table"></div>
-        <div id="snake-buttons">
-            <div class="user-1">
-                <button id="user-1" onclick="userAction(event)">User-1</button>
-            </div>
+        <div class="row-title">
+            <h1>SERPENT</h1>
+        </div>
 
-            <div id="screen" class="screen">
-                5
-            </div>
+        <div class="snake-table" id="snake-table">
+        </div>
 
-            <div class="user-2">
-                <button id="user-1" onclick="userAction(event)">User-2</button>
+        <div class="snake-table-zero">
+            <div id="0" class="user-1-zero"></div>
+            <div id="0" class="user-2-zero"></div>
+        </div>
+
+        <div class="snake-buttons-row">
+            <div class="buttons-col">
+                <div class="user-1">
+                    <button type="button" id="user-1" class="active" onclick="userAction('humain')">User-1</button>
+                </div>
+
+                <div id="screen" class="screen"></div>
+
+                <div class="user-2">
+                    <button type="button" id="user-2" class="not-active" disabled="true" >Ordinateur (Auto)</button>
+                </div>
             </div>
+            <div id="turn-alert" class="turn-alert">Votre tour</div>
         </div>
     </div>
 </body>
