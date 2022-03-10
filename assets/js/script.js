@@ -1,28 +1,28 @@
-const board = document.querySelector('#board');
-let tblBody = document.createElement("tbody");
+// const board = document.querySelector('#board');
+// let tblBody = document.createElement("tbody");
 
-    for (var j = 0; j < 5 ; j++) {
+// for (var j = 0; j < 5; j++) {
 
-        var row = document.createElement("tr");
+//     var row = document.createElement("tr");
 
-        for (var i = 1; i <= 10; i++) {
+//     for (var i = 1; i <= 10; i++) {
 
-            var cell = document.createElement("td");
+//         var cell = document.createElement("td");
 
-            if(j%2 == 0) {
-                var cellText = document.createTextNode(i+j*10);
-            }
-            else {
-                var cellText = document.createTextNode(11-i+j*10);
-            }
+//         if (j % 2 == 0) {
+//             var cellText = document.createTextNode(i + j * 10);
+//         }
+//         else {
+//             var cellText = document.createTextNode(11 - i + j * 10);
+//         }
 
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-            }
+//         cell.appendChild(cellText);
+//         row.appendChild(cell);
+//     }
 
-        tblBody.appendChild(row);
-        board.appendChild(tblBody);
-    }
+//     tblBody.appendChild(row);
+//     board.appendChild(tblBody);
+// }
 
 
 // Function use to dynamically create the board with numbers from 1 to 100 or 50 according to the given parameters.
@@ -40,6 +40,11 @@ function createBoard2(table_id, total_num, max_on_line, direction) {
         // Creating <td> element.
         var elem_td = document.createElement('td');
         elem_td.innerHTML = x;
+        if (x == 12 || x == 26 || x == 42) {
+            elem_td.innerHTML = x + ' Avancer de cinq cases !';
+        } else if (x == 4 || x == 19 || x == 48) {
+            elem_td.innerHTML = x + ' Reculer de trois cases !';
+        }
 
         // Appending the <td> to <tr> according to the selected directions
         if (direction == 'right') {
