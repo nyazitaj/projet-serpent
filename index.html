@@ -6,11 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu du serpent</title>
-    <script src="assets/js/script.js" defer />
+    <script src="assets/js/script.js" defer></script>
 </head>
 
 <body>
     <table id="board"></table>
+
+    <br />
+    <br />
+
+    <div class="snake-container">
+        <div id="snake-table"></div>
+        <div id="snake-buttons">
+            <div class="user-1">
+                <button id="user-1" onclick="userAction(event)">User-1</button>
+            </div>
+
+            <div id="screen" class="screen">
+                5
+            </div>
+
+            <div class="user-2">
+                <button id="user-1" onclick="userAction(event)">User-2</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
