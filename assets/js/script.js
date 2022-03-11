@@ -25,7 +25,7 @@ let tblBody = document.createElement("tbody");
     } */
 
 
-var gameTotalLevel = 10;
+var gameTotalLevel = 50;
 var gameTotalPerRow = 10;
 
 // Function use to dynamically create the board with numbers from 1 to 100 or 50 according to the given parameters.
