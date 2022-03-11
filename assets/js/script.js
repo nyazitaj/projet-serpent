@@ -25,7 +25,7 @@ let tblBody = document.createElement("tbody");
     } */
 
 
-var gameTotalLevel = 50;
+var gameTotalLevel = 10;
 var gameTotalPerRow = 10;
 
 // Function use to dynamically create the board with numbers from 1 to 100 or 50 according to the given parameters.
@@ -48,8 +48,7 @@ function createBoard2(table_id, total_num, max_on_line, direction) {
         // Appending the <td> to <tr> according to the selected directions
         if (direction == 'right') {
             elem_tr.appendChild(elem_td);
-        }
-        else {
+        } else {
             elem_tr.insertBefore(elem_td, elem_tr.children[0]);
         }
 
@@ -64,8 +63,7 @@ function createBoard2(table_id, total_num, max_on_line, direction) {
             // Updating the "direction" variable.
             if (direction == 'right') {
                 direction = 'left';
-            }
-            else {
+            } else {
                 direction = 'right';
             }
 
@@ -87,18 +85,21 @@ var user2Pos = 0;
 
 function playSnake(randVal, userTurn) {
 
-    if( userTurn == 'humain') {
+    if (userTurn == 'humain') {
 
-        if( gameTotalLevel - user1Pos <= 6 ) {
+        if (randVal == gameTotalLevel - user1Pos) {
 
-            if( randVal == gameTotalLevel - user1Pos ) {
-                document.getElementById('turn-alert').innerHTML = 'Bravo!<br>Vous avez gagné.';
-                document.getElementById('user-1').setAttribute('disabled', true);
-                document.getElementById('user-1').classList.toggle('not-active');
-            }
-            else {
-                return
-            }
+            document.getElementById('turn-alert').innerHTML = 'Bravo!<br>Vous avez gagné.';
+            document.getElementById('user-1').setAttribute('disabled', true);
+            document.getElementById('user-1').classList.toggle('not-active');
+
+            console.log('You have lost')
+
+        }
+
+        if (randVal > gameTotalLevel - user1Pos) {
+            console.log('You: Try again')
+            return
         }
 
         // Animating the user's motion.
@@ -111,26 +112,27 @@ function playSnake(randVal, userTurn) {
             user1PosTemp += 1;
             document.getElementById(user1PosTemp).classList.add("user-1-pos");
 
-            if(user1PosTemp == user1Pos) {
+            if (user1PosTemp == user1Pos) {
                 clearInterval(intTemp);
                 document.getElementById(user1Pos).classList.add("user-1-pos");
             }
         }, 200);
 
-    }
-    else {
+    } else {
 
-        if( gameTotalLevel - user2Pos <= 6 ) {
+        if (randVal == gameTotalLevel - user2Pos) {
 
-            if( randVal == gameTotalLevel - user2Pos ) {
-                document.getElementById('turn-alert').innerHTML = 'Vous avez perdu !';
-                document.getElementById('user-2').setAttribute('disabled', true);
-                document.getElementById('user-2').classList.toggle('not-active');
-            }
-            else {
-                return
-            }
+            document.getElementById('turn-alert').innerHTML = 'Vous avez perdu !';
+            document.getElementById('user-2').setAttribute('disabled', true);
+            document.getElementById('user-2').classList.toggle('not-active');
 
+            console.log('Computer failed')
+
+        }
+
+        if (randVal > gameTotalLevel - user2Pos) {
+            console.log('Com: Try again')
+            return
         }
 
         // Animating the user's motion.
@@ -143,7 +145,7 @@ function playSnake(randVal, userTurn) {
             user2PosTemp += 1;
             document.getElementById(user2PosTemp).classList.add("user-2-pos");
 
-            if(user2PosTemp == user2Pos) {
+            if (user2PosTemp == user2Pos) {
                 clearInterval(intTemp);
                 document.getElementById(user2Pos).classList.add("user-2-pos");
             }
@@ -170,7 +172,7 @@ function userAction(user_type) {
 
     // Changing the user position after some internal
     setTimeout(function() {
-        if(user_type == 'humain') {
+        if (user_type == 'humain') {
             playSnake(randVal, user_type);
             document.getElementById('user-1').setAttribute('disabled', true);
             document.getElementById('user-1').classList.toggle('not-active');
@@ -185,8 +187,7 @@ function userAction(user_type) {
             setTimeout(function() {
                 userAction('computer');
             }, 1000);
-        }
-        else {
+        } else {
             playSnake(randVal, user_type);
         }
         // myStopFunction();
